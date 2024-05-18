@@ -1,0 +1,17 @@
+apiVersion: api.preethi.com/v1alpha1
+kind: Scalar
+metadata:
+  labels:
+    app.kubernetes.io/name: scalar
+    app.kubernetes.io/instance: scalar-sample
+    app.kubernetes.io/part-of: deployment-scale-operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: deployment-scale-operator
+  name: scalar-sample
+spec:
+  start: 3
+  end: 5
+  replicas: 2
+  deployments:
+    - name: nginx
+      namespace: deployment-scale-operator-system

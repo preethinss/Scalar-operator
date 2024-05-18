@@ -1,0 +1,27 @@
+# permissions for end users to view scalars.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: scalar-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: deployment-scale-operator
+    app.kubernetes.io/part-of: deployment-scale-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: scalar-viewer-role
+rules:
+- apiGroups:
+  - api.preethi.com
+  resources:
+  - scalars
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - api.preethi.com
+  resources:
+  - scalars/status
+  verbs:
+  - get

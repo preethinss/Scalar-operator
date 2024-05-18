@@ -1,0 +1,32 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - api.preethi.com
+  resources:
+  - scalars
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - api.preethi.com
+  resources:
+  - scalars/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - api.preethi.com
+  resources:
+  - scalars/status
+  verbs:
+  - get
+  - patch
+  - update
